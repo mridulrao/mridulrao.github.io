@@ -44,11 +44,8 @@
               <label for="exampleInputPassword1" class="form-label">Message</label>
               <input type="text" class="form-control" name = "text">
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <div class="g-recaptcha" data-sitekey="6LfLrQAoAAAAAHijvKSZJZyYs98Simu6VzXxfFO2"></div>
+            <div class="g-recaptcha" data-sitekey="6LfLrQAoAAAAAHijvKSZJZyYs98Simu6VzXxfFO2" data-callback="verifyCaptcha"></div>
+            <div id="g-recaptcha-error"></div>
             <button type="submit" class="btn btn-primary" value="Send" id="js_send">Submit</button>
             <p>Powered by <a href="https://postmail.invotes.com" target="_blank">PostMail</a></p>
           </form>
@@ -61,6 +58,21 @@
 
     <script src="js/script.js"></script>
     <script src="js/mail.js"></script>
+    <script>
+        var recaptcha_response = '';
+        function submitUserForm() {
+            if(recaptcha_response.length == 0) {
+                document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+                return false;
+            }
+            return true;
+        }
+
+        function verifyCaptcha(token) {
+            recaptcha_response = token;
+            document.getElementById('g-recaptcha-error').innerHTML = '';
+        }
+      </script>
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
