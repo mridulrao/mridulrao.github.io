@@ -44,7 +44,22 @@ function js_send() {
     return false;
 }
 
-sendButton.onclick = js_send;
+var recaptcha_response = '';
+
+function submitUserForm(){
+    if(recaptcha_response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+        return false;
+    }
+    js_send();
+    }
+
+function verifyCaptcha(token) {
+    recaptcha_response = token;
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
+
+sendButton.onclick = submitUserForm();
 
 function toParams(data_js) {
     var form_data = [];
