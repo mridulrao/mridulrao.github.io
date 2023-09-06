@@ -5,28 +5,39 @@ var data_js = {
     "access_token": "4z3tl4tthp116xujdhqaa5g6"
 };
 
-function js_onSuccess() {
-    // remove this to avoid redirect
-    window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
-}
-
-function js_onError(error) {
-    // remove this to avoid redirect
-    window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
-}
+var recaptcha_response = '';
 
 var sendButton = document.getElementById("js_send");
 
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
 function js_send() {
-    sendButton.value='Sending…';
     sendButton.disabled=true;
     var request = new XMLHttpRequest();
+
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
-            js_onSuccess();
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-success alert-dismissible" role="alert">`,
+                `   <div>'Your message has been sent!'</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+
+            alertPlaceholder.append(wrapper)
         } else
         if(request.readyState == 4) {
-            js_onError(request.response);
+            alert("Message could not be sent, try contacting on LinkedIn")
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-danger alert-dismissible" role="alert">`,
+                `   <div>'Message could not be sent, try contacting on LinkedIn'</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+
+            alertPlaceholder.append(wrapper)
         }
     };
 
@@ -34,6 +45,7 @@ function js_send() {
     var message = document.querySelector("#" + form_id_js + " [name='text']").value;
     data_js['subject'] = subject;
     data_js['text'] = message;
+
     var params = toParams(data_js);
 
     request.open("POST", "https://postmail.invotes.com/send", true);
@@ -44,22 +56,19 @@ function js_send() {
     return false;
 }
 
-var recaptcha_response = '';
-
 function submitUserForm(){
     if(recaptcha_response.length == 0) {
         document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
-        return false;
     }
-    js_send();
+    else{
+        js_send(); 
     }
+}
 
 function verifyCaptcha(token) {
     recaptcha_response = token;
     document.getElementById('g-recaptcha-error').innerHTML = '';
 }
-
-sendButton.onclick = submitUserForm();
 
 function toParams(data_js) {
     var form_data = [];
@@ -71,6 +80,7 @@ function toParams(data_js) {
 }
 
 var js_form = document.getElementById(form_id_js);
+
 js_form.addEventListener("submit", function (e) {
     e.preventDefault();
 });
