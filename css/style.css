@@ -1,134 +1,261 @@
-/* Base styles */
-body {
-    font-family: 'Roboto Mono', monospace;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Body Styling */
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #0a0a0a;
+    color: #f0f0f0;
     padding: 20px;
+    line-height: 1.6;
 }
 
-/* Header styles */
+/* Header Styling */
 header {
-    background-color: #333;
-    color: #92C3C0;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
 }
 
 header h1 {
-    margin: 0;
-    font-family: 'Roboto Mono', monospace;
-}
-
-/* Style the typewriter container */
-.typewriter p{
-    display: inline-block;
-    position: relative;
-    margin: 0;
-}
-
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-}
-
-/* Navigation styles */
-nav {
-    background-color: #0F1822;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    font-size: 3rem;
+    color: #00ffc3;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    display: inline;
-    margin-left: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #92C3C0;
-}
-
-/* Hamburger menu styles for smaller screens */
-#menu-icon {
-    display: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: #fff;
-}
-
-/* Media queries for responsiveness */
-@media screen and (max-width: 768px) {
-    /* Hide the regular navigation menu */
-    nav ul {
-        display: none;
-    }
-
-    /* Display the hamburger menu icon */
-    #menu-icon {
-        display: block;
-    }
-
-    /* Add additional styles for the mobile menu */
-    #mobile-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #333;
-        border: 1px solid #fff;
-        padding: 10px;
-    }
-
-    #mobile-menu.active {
-        display: flex;
-    }
-
-    #mobile-menu a {
-        text-align: right;
-        padding: 5px 0;
-        font-size: 18px;
-        color: #fff;
-        text-decoration: none;
-    }
-}
-
-/* Styles for larger screens */
-@media screen and (min-width: 769px) {
-    /* Hide the hamburger menu icon on larger screens */
-    #menu-icon {
-        display: none;
-    }
-
-    /* Display the regular navigation menu */
-    nav ul {
-        display: flex;
-    }
-}
-
-
-/*  Footer style */
-footer {
-    background-color: #0F1822;
-    color: #fff;
-    padding: 10px;
+    list-style-type: none;
     text-align: center;
-  }
+    margin: 20px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #00ffc3;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff0073;
+}
+
+/* Section Styling */
+.container {
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+h2 {
+    color: #00ffc3;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #00ffc3;
+    margin: 10px auto 0;
+    box-shadow: 0 0 10px #00ffc3, 0 0 20px #00ffc3;
+}
+
+/* Experience Item */
+.experience-item {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+    transition: transform 0.3s;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 255, 195, 0.2);
+}
+
+.experience-item h3 {
+    color: #ff0073;
+    font-size: 1.5rem;
+}
+
+.duration {
+    color: #999;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.experience-item p {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+ul {
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+li {
+    padding: 5px 0;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+    color: #777;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #0a0a0a;
+    color: #f0f0f0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #00ffc3;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #00ffc3;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff0073;
+}
+
+/* Section Styling */
+.container {
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+h2 {
+    color: #00ffc3;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #00ffc3;
+    margin: 10px auto 0;
+    box-shadow: 0 0 10px #00ffc3, 0 0 20px #00ffc3;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #0a0a0a;
+    color: #f0f0f0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #777;
+}
+
+.contact-form button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00ffc3;
+    color: #0a0a0a;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #ff0073;
+}
+
+.contact-form p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+    color: #777;
+}
+

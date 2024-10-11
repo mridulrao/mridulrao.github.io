@@ -37,3 +37,24 @@ function updateTagline() {
 
 // Initialize the tagline
 updateTagline();
+
+
+// Smooth scroll for nav links
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+
+        // If href starts with '#', it's an in-page link.
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // Otherwise, allow normal page navigation (external pages like experience.html)
+            window.location.href = href;
+        }
+    });
+});
+
