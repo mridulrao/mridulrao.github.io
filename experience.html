@@ -20,13 +20,31 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="experience.html">Experience</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <section class="container">
         <h2>Professional Experience</h2>
+
+        <!-- Stealth Startup Internship -->
+        <div class="experience-item">
+            <h3>AI Developer Intern | Stealth Startup, Cupertino, CA</h3>
+            <p class="duration">November 2024 - Present</p>
+            <p>Building production-grade voice-based AI agents for enterprise IT support, integrating telephony and low-latency LLM pipelines with observability and reliability.</p>
+            
+            <h4>Key Contributions:</h4>
+            <ul>
+                <li>Reduced agent handover time by 30% by building and integrating voice agents with IVR (AudioHooks, SIP, WebSockets).</li>
+                <li>Boosted IT document query accuracy by 37% across 10K+ articles, reducing call handling time by 22%.</li>
+                <li>Cut speech latency by 65% (TTFT: 2.0s → 0.7s) using real-time monitoring and pipeline optimization.</li>
+                <li>Scaled infrastructure to handle 20–50 concurrent calls with 99.9% uptime through load balancing and fault-tolerant design.</li>
+                <li>Improved responsiveness by 50% with caching, semantic query matching, and conversational memory, raising cache hits by 35%.</li>
+            </ul>
+        </div>
 
         <!-- Claim Buddy Internship -->
         <div class="experience-item">
@@ -44,38 +62,37 @@
 
         <!-- Samsung PRISM Internship -->
         <div class="experience-item">
-            <h3>Research Intern | Samsung PRISM, Bangalore</h3>
+            <h3>Research Intern | Samsung PRISM, Bengaluru, India</h3>
             <p class="duration">July 2021 - April 2022</p>
-            <p>During my internship at Samsung PRISM, I worked on developing a language model for intent and entity extraction from textual data. This involved creating a dataset with over 150k training samples and experimenting with various NLP techniques to improve model accuracy. My work was recognized as ‘Excellent’ by the Samsung Research Institute Bangalore (SRIB). This project not only involved advanced NLP model training but also focused on improving model efficiency and scalability for real-world applications.</p>
+            <p>Developed production-ready NLP models for intent and entity extraction with a focus on edge deployment, efficient training, and real-time performance. Recognized as ‘Excellent’ by the Samsung Research Institute Bangalore (SRIB).</p>
             
             <h4>Key Contributions:</h4>
             <ul>
-                <li>Built and trained a language model for intent and entity extraction.</li>
-                <li>Created a large dataset with over 150k training samples.</li>
-                <li>Achieved ‘Excellent’ rating for research work at SRIB.</li>
+                <li>Developed and deployed a language model for edge devices, achieving 98% accuracy retention in real-time interactions.</li>
+                <li>Curated and labeled 150K+ examples for entity-intent tasks; fine-tuned with BERT for context-aware predictions.</li>
+                <li>Built an Android app to integrate ML models with edge devices, enabling seamless low-latency deployment.</li>
             </ul>
         </div>
 
-        <!-- FUZOLO Internship -->
+        <!-- Fuzolo Internship -->
         <div class="experience-item">
-            <h3>Data Science Intern | FUZOLO, Gurgaon</h3>
+            <h3>Data Analytics Intern | Fuzolo, Gurgaon, India</h3>
             <p class="duration">February 2022 - July 2022</p>
-            <p>At FUZOLO, I transitioned into a data science role, focusing on analyzing customer behavior and optimizing the pricing strategy. Using time series data from customer bookings, I implemented a dynamic pricing model that resulted in a 15% boost in sales. In addition, I performed customer segmentation to better understand booking patterns, which allowed us to tailor targeted offers and refine marketing strategies, ultimately improving customer retention and engagement.</p>
+            <p>Worked on dynamic pricing and customer segmentation to improve sales and marketing effectiveness.</p>
             
             <h4>Key Contributions:</h4>
             <ul>
-                <li>Analyzed customer footfall using time series data from bookings to identify patterns and trends.</li>
-                <li>Implemented a dynamic pricing model based on booking patterns, which increased sales by 15%.</li>
-                <li>Segmented customers into various categories based on booking behavior, enabling personalized offers and discounts.</li>
-                <li>Developed insights into booking patterns, which helped the marketing team optimize campaigns and improve engagement.</li>
-                <li>Collaborated with the development team to integrate data-driven pricing strategies into the web platform for real-time updates.</li>
+                <li>Increased sales by 15% through dynamic pricing models on time-series booking data.</li>
+                <li>Improved customer targeting by segmenting users into categories, enhancing marketing and engagement strategies.</li>
             </ul>
         </div>
 
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 Mridul Rao</p>
+        <p>&copy; 2025 Mridul Rao</p>
+        <p>👀 Profile views: <span id="view-count">—</span></p>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>

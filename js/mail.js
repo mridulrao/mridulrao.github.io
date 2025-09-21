@@ -25,7 +25,12 @@ function js_send() {
                 '</div>'
             ].join('')
 
-            alertPlaceholder.append(wrapper)
+            if (alertPlaceholder) {
+                alertPlaceholder.append(wrapper)
+            } else {
+                alert('Your message has been sent!')
+            }
+            if (sendButton) sendButton.disabled = false;
         } else
         if(request.readyState == 4) {
             alert("Message could not be sent, try contacting on LinkedIn")
@@ -37,7 +42,10 @@ function js_send() {
                 '</div>'
             ].join('')
 
-            alertPlaceholder.append(wrapper)
+            if (alertPlaceholder) {
+                alertPlaceholder.append(wrapper)
+            }
+            if (sendButton) sendButton.disabled = false;
         }
     };
 
@@ -81,6 +89,16 @@ function toParams(data_js) {
 
 var js_form = document.getElementById(form_id_js);
 
-js_form.addEventListener("submit", function (e) {
-    e.preventDefault();
-});
+if (js_form) {
+    js_form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        submitUserForm();
+    });
+}
+
+if (sendButton) {
+    sendButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        submitUserForm();
+    });
+}

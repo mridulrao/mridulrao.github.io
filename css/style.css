@@ -254,8 +254,196 @@ h2::after {
 /* Footer */
 .footer {
     text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #333;
-    color: #777;
+    padding: 24px 0;
+    border-top: 1px solid #1f1f1f;
+    color: #a1a1a1;
 }
 
+.footer #view-count { font-weight: 600; color: #00ffc3; }
+
+/* =========================================
+    UI Enhancements (Overrides + New Styles)
+    ========================================= */
+:root {
+    --bg: #0a0a0a;
+    --bg-elev: #121212;
+    --text: #f0f0f0;
+    --muted: #a1a1a1;
+    --primary: #00ffc3;
+    --accent: #ff0073;
+    --border: #1f1f1f;
+    --shadow: 0 10px 30px rgba(0, 255, 195, 0.08);
+    --radius: 12px;
+    --container: 960px;
+}
+
+html { scroll-behavior: smooth; }
+
+::selection {
+    background: rgba(0, 255, 195, 0.3);
+    color: #ffffff;
+}
+
+/* Body and Header tweaks */
+body {
+    background: linear-gradient(180deg, #0b0b0b 0%, #0f0f0f 100%);
+    color: var(--text);
+}
+
+header {
+    padding: 32px 0 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px rgba(0, 255, 195, 0.20);
+}
+
+/* Navigation - pill/glass style */
+nav ul {
+    display: inline-flex;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(18, 18, 18, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    margin: 20px auto;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0;
+}
+
+nav ul li a {
+    position: relative;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--text);
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+    background: rgba(0, 255, 195, 0.08);
+}
+
+/* Container sizing */
+.container {
+    max-width: var(--container);
+    padding: 0 20px;
+}
+
+/* Headings */
+h2 {
+    letter-spacing: 1px;
+}
+
+h2::after {
+    width: 96px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    box-shadow: 0 0 12px rgba(0, 255, 195, 0.6), 0 0 18px rgba(255, 0, 115, 0.3);
+}
+
+/* Typewriter line and caret */
+.typewriter p {
+    font-size: 1.1rem;
+    color: var(--muted);
+}
+
+.typewriter p::after {
+    content: '▍';
+    margin-left: 6px;
+    color: var(--primary);
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Cards / Experience items */
+.experience-item {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 255, 195, 0.12);
+    border-color: rgba(0, 255, 195, 0.25);
+}
+
+.experience-item h3 { color: #e7e7e7; }
+
+.duration { color: var(--muted); }
+
+/* Links */
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: #b0ffe9; }
+
+/* Buttons */
+.btn {
+    background: linear-gradient(135deg, var(--primary), #70ffd9);
+    color: #0a0a0a;
+    border-radius: 10px;
+    padding: 10px 18px;
+    border: 0;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #70ffd9, var(--accent));
+    color: #0a0a0a;
+}
+
+/* Forms */
+.contact-form { border: 1px solid var(--border); }
+.contact-form input, .contact-form textarea {
+    border: 1px solid var(--border);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: rgba(0, 255, 195, 0.5);
+    box-shadow: 0 0 0 3px rgba(0, 255, 195, 0.15);
+}
+
+/* Footer tweaks already above */
+
+/* Tag badges (used on blogs) */
+.tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(0, 255, 195, 0.10);
+    color: var(--primary);
+    font-size: 0.8rem;
+    margin-left: 8px;
+}
+.tag.blog { background: rgba(0, 255, 195, 0.12); }
+.tag.project { background: rgba(255, 0, 115, 0.12); color: var(--accent); }
+
+/* Spacing tweaks */
+ul { margin: 16px 0; }
+li { padding: 6px 0; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    :root { --container: 760px; }
+    header h1 { font-size: 2.4rem; }
+}
+
+@media (max-width: 600px) {
+    :root { --container: 640px; }
+    nav ul {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 8px;
+    }
+    .container { margin: 32px auto; }
+}
